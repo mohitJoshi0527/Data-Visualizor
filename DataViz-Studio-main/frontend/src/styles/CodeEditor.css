@@ -1,0 +1,109 @@
+.code-editor-overlay {
+  position: fixed;
+  z-index: 1000;
+  background: #1e1e1e;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  max-width: 90vw;
+  max-height: 80vh;
+  color: #f0f0f0;
+}
+
+.code-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: #2a2a2a;
+  border-bottom: 1px solid #444;
+}
+
+.code-editor-title {
+  font-weight: 600;
+  color: var(--accent-primary, #4ecdc4);
+  font-size: 14px;
+}
+
+.code-editor-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.run-button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.run-button:hover:not(:disabled) {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.run-button:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.code-editor-container {
+  height: 100%;
+  border: none;
+  overflow: hidden;
+}
+
+/* Monaco Editor uses its own theme but fallback color still helps */
+.code-editor-container .monaco-editor {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.code-editor-footer {
+  padding: 10px 18px;
+  background: #2a2a2a;
+  border-top: 1px solid #444;
+  font-size: 12px;
+  color: #999;
+}
+
+.help-text {
+  font-style: italic;
+  color: #aaa;
+}
+
+/* Hover indicator for code-enabled images */
+.image-element.has-code {
+  position: relative;
+}
+
+.image-element.has-code::after {
+  content: '</>';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #4ecdc4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.image-element.has-code:hover::after {
+  opacity: 1;
+}
+
+.image-element.code-editor-visible {
+  border: 2px solid #28a745;
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);
+}
